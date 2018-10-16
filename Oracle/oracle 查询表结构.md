@@ -46,4 +46,4 @@ and   COL.TABLE_NAME ='RQ_STOCKTYPE'
 ORDER BY COL.TABLE_NAME,col.column_id;
 
 
-  ```
+```
