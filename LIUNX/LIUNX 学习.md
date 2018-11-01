@@ -126,20 +126,24 @@
 
 * ##### 与用户账号有关系的系统文件
 
-  *  ```
+  * ```
      /etc/passwd  文件 是用户管理工作涉及最重要的一个文件 记录每一个用户的属性 对每个用户都是可读的
      cat /etc/passwd  使用 该命令读取该文件内容
      如下：
      	root:x:0:0:root:/root:/bin/bash
-    	bin:x:1:1:bin:/bin:/sbin/nologin
-    	daemon:x:2:2:daemon:/sbin:/sbin/nologin
-    	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
-    	sync:x:5:0:sync:/sbin:/bin/sync
-    	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
-    	。。。。。 
-    	分别用 : 分割开 对应下面的意思
-    	
+       	bin:x:1:1:bin:/bin:/sbin/nologin
+       	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+       	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+       	sync:x:5:0:sync:/sbin:/bin/sync
+       	shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+       	。。。。。 
+       	分别用 : 分割开 对应下面的意思
+     ```
+
     	用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell
+
+     ```
+  
      ```
 
 
@@ -210,3 +214,225 @@
            。。。。
        
        ````
+
+
+#### 磁盘管理
+
+* df：列出文件系统的整体磁盘使用量
+
+   ```
+  df [选项] 目录名称
+   ```
+
+
+
+  >- -a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；
+  >- -k ：以 KBytes 的容量显示各文件系统；
+  >- -m ：以 MBytes 的容量显示各文件系统；
+  >- -h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；
+  >- -H ：以 M=1000K 取代 M=1024K 的进位方式；
+  >- -T ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；
+  >- -i ：不用硬盘容量，而以 inode 的数量来显示
+  >
+  >
+
+  * > ```
+    >  df 后面不加任何选择 默认是不将所有文件显示出来
+    > 示例：
+    > 	df 
+    >         Filesystem     1K-blocks    Used Available Use% Mounted on
+    >         /dev/vda1       41151808 1808428  37229948   5% /
+    >         devtmpfs          931516       0    931516   0% /dev
+    >         tmpfs             941860       0    941860   0% /dev/shm
+    >         tmpfs             941860    8488    933372   1% /run
+    > 
+    >  
+    >  	df -a 
+    >  		Filesystem     1K-blocks    Used Available Use% Mounted on
+    >         rootfs                 -       -         -    - /
+    >         sysfs                  0       0         0    - /sys
+    >         proc                   0       0         0    - /proc
+    >         devtmpfs          931516       0    931516   0% /dev
+    >         securityfs             0       0         0    - /sys/kernel/security
+    >         tmpfs             941860       0    941860   0% /dev/shm
+    >         devpts                 0       0         0    - /dev/pts
+    >         tmpfs             941860    8488    933372   1% /run
+    >         tmpfs             941860       0    941860   0% /sys/fs/cgroup
+    >         。。。。。。。。
+    > 
+    > ```
+    >
+    >
+
+* du：检查磁盘空间使用量  ，Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的
+
+    ``` du
+  du  [ 选项 ]  文件或目录名称 
+    ```
+
+  > * -a ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。
+  > * -h ：以人们较易读的容量格式 (G/M) 显示；
+  > * -s ：列出总量而已，而不列出每个各别的目录占用容量；
+  > * -S ：不包括子目录下的总计，与 -s 有点差别。
+  > * -k ：以 KBytes 列出容量显示；
+  > * -m ：以 MBytes 列出容量显示；
+
+  > ```
+  > 示例： 
+  > 	1. du   列出目前目录下的所有文件容量  直接输入 du 没加任何选项时，则 du 会分析当前目录			文件与目录所占的容量
+  > 		8	./.oracle_jre_usage
+  >         8	./.pip
+  >         4	./.ssh
+  >         4	./runoob
+  >         4	./tem/test1/test2/test3
+  >         8	./tem/test1/test2
+  >         12	./tem/test1
+  >         。。。。。
+  >     2. du -a 将文件容量也列出来
+  >     	4	./.bashrc
+  >         4	./.bash_profile
+  >         4	./mydemo/1.txt
+  >         8	./mydemo
+  >         4	./.pydistutils.cfg
+  >         4	./.bash_history
+  >         。。。。。。
+  >     3.  du -sm /* 检查根目录底下每个目录所占用的容量 ，通配符 * 来代表每个目录。
+  >     	0	/bin
+  >         140	/boot
+  >         0	/dev
+  >         32	/etc
+  >         1	/home
+  >         0	/lib
+  >         0	/lib64
+  >         。。。。。。
+  > ```
+
+* fdisk：用于磁盘分区 ，fdisk 是 Linux 的磁盘分区表操作工具。
+
+   ```
+  fdisk [ 选项 ] 装置名称
+   ```
+
+  > * -l ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
+
+  > ```
+  > 示例：
+  > 	1. fdisk -l  列出所有分区信息
+  > 		Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+  >         Units = sectors of 1 * 512 = 512 bytes
+  >         Sector size (logical/physical): 512 bytes / 512 bytes
+  >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  >         Disk label type: dos
+  >         Disk identifier: 0x0008de3e
+  > 
+  >            Device Boot      Start         End      Blocks   Id  System
+  >         /dev/vda1   *        2048    83884031    41940992   83  Linux
+  > 	2. df /            <==注意：重点在找出磁盘文件名而已
+  > 		Filesystem     1K-blocks    Used Available Use% Mounted on
+  > 		/dev/vda1       41151808 1808820  37229556   5% /
+  > 		
+  > 	输入fdisk /dev/vda1
+  >         Welcome to fdisk (util-linux 2.23.2).
+  > 
+  >         Changes will remain in memory only, until you decide to write them.
+  >         Be careful before using the write command.
+  > 
+  >         Device does not contain a recognized partition table
+  >         Building a new DOS disklabel with disk identifier 0x4c214682.
+  > 
+  >         Command (m for help):   =>> 等待你的输入
+  >         
+  >         输入 m 后，就会看到底下这些命令介绍
+  >         
+  >         	Command action
+  >                a   toggle a bootable flag
+  >                b   edit bsd disklabel
+  >                c   toggle the dos compatibility flag
+  >                d   delete a partition		 <==删除一个partition
+  >                g   create a new empty GPT partition table
+  >                G   create an IRIX (SGI) partition table
+  >                l   list known partition types
+  >                m   print this menu
+  >                n   add a new partition		<==新增一个partition
+  >                o   create a new empty DOS partition table
+  >                p   print the partition table	 <==在屏幕上显示分割表
+  >                q   quit without saving changes		<==不储存离开fdisk程序
+  >                s   create a new empty Sun disklabel
+  >                t   change a partition's system id
+  >                u   change display/entry units
+  >                v   verify the partition table
+  >                w   write table to disk and exit		 <==将刚刚的动作写入分割表
+  >                x   extra functionality (experts only)
+  > 		输入 p 	<== 这里可以输出目前磁盘的状态
+  > 		 这个磁盘的文件名与容量
+  > 		Disk /dev/vda1: 42.9 GB, 42947575808 bytes, 83881984 sectors 
+  >         Units = sectors of 1 * 512 = 512 bytes	
+  >         Sector size (logical/physical): 512 bytes / 512 bytes 
+  >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  >         Disk label type: dos
+  >         Disk identifier: 0x4c214682
+  > 
+  >      	Device Boot      Start         End      Blocks   Id  System
+  >      	
+  >      	
+  >      	想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
+  > 
+  > 		使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
+  > 	
+  > ```
+  >
+  >
+
+*  磁盘格式化
+
+  * 磁盘分割完毕后自然就是要进行文件系统的格式化，格式化的命令非常的简单，使用 `mkfs`（make filesystem） 命令。
+
+    语法：
+
+     ```
+    mkfs [-t 文件系统格式] 装置文件名
+    	-t ：可以接文件系统格式，例如 ext3, ext2, vfat 等(系统有支持才会生效)
+     ```
+
+    > ```
+    > 示例：
+    > 	1. mkfs [tab] [tab] 查看 mkfs 支持的格式  [tab] 是按 Tab 建，不是输入[tab]
+    >     
+    > mkfs         mkfs.btrfs   mkfs.cramfs  mkfs.ext2    mkfs.ext3    mkfs.ext4    		mkfs.minix   mkfs.xfs
+    > ```
+    >
+    >
+
+#### linux yum 命令
+
+* yum（ Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。
+
+  基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。
+
+  yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。
+
+  ```
+  yum [options] [command] [package ...]
+  ```
+
+  > * **options：**可选，选项包括-h（帮助），-y（当安装过程提示选择全部为"yes"），-q（不显示安装的过程）等等。
+  > * **command：**要进行的操作。
+  > * **package**操作的对象。
+
+  > ```
+  > yum常用命令
+  > 1.列出所有可更新的软件清单命令：yum check-update
+  > 2.更新所有软件命令：yum update
+  > 3.仅安装指定的软件命令：yum install <package_name>
+  > 4.仅更新指定的软件命令：yum update <package_name>
+  > 5.列出所有可安裝的软件清单命令：yum list
+  > 6.删除软件包命令：yum remove <package_name>
+  > 7.查找软件包 命令：yum search <keyword>
+  > 8.清除缓存命令:
+  >     yum clean packages: 清除缓存目录下的软件包
+  >     yum clean headers: 清除缓存目录下的 headers
+  >     yum clean oldheaders: 清除缓存目录下旧的 headers
+  >     yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除	 缓存目录下的软件包及旧的headers
+  > ```
+  >
+  >
