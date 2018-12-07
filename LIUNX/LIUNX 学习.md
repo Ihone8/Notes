@@ -461,51 +461,51 @@
 
      ![](https://github.com/Ihone8/Notes/blob/master/Images/dotnetcoreversion.png)
 
-   ![](https://github.com/Ihone8/Notes/tree/master/ImagesHome.png)
+   ![](https://github.com/Ihone8/Notes/tree/master/Images/Home.png)
 
 好啦， 我们的 dotnetcore 网站应用就创建完成，是不是感觉和 ASP.NET MVC 一样的目录结构
 
-![](https://github.com/Ihone8/Notes/tree/master/Imagesrun.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/run.png)
 
 我们把 Home 文件夹下面  index 页面 ，稍微 更改下，然后运行下看下效果
 
-![](https://github.com/Ihone8/Notes/tree/master/Imageswebrun.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/webrun.png)
 
 好啦， 我们的 dotnetcore 网站已经成功创建， 并且运行起来了， 
 
 2. 开始发布我们的 dotnetcore 网站 ， 和平时 .net 网站发布一样，没什么区别，右键项目 ，点击发布
 
-![](https://github.com/Ihone8/Notes/tree/master/Imagesfb.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/fb.png)
 
 点击发布按钮之后，可以看到下面的页面 ，我们选择文件夹发布，浏览选择我们要发布的文件的文件夹
 
-![](https://github.com/Ihone8/Notes/tree/master/Imagesfbfile.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/fbfile.png)
 
 选择完成之后，点击右下角的 发布按钮，静静的等待。发布完成之后，打开我们刚刚浏览选择的发布文件夹，你可以看到如下图，这些就是发布之后的文件
 
-![](https://github.com/Ihone8/Notes/tree/master/Imagesfbzhwjj.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/fbzhwjj.png)
 
 3. 好啦， 我们的 dotnetcore 网站已经成功发布好了在我们本地，我们该如何运行起来了，
 
     在我们发布的文件夹中 打开 cmd 窗口，在下图红框中输入 cmd 命令，会出现下图
 
-   ![](https://github.com/Ihone8/Notes/tree/master/ImagesQQ截图20181206183527.png)
+   ![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183527.png)
 
-   ![](https://github.com/Ihone8/Notes/tree/master/ImagesQQ截图20181206183603.png)
+   ![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183603.png)
 
 4. 在  cmd  窗口 输入   dotnet  加上  你的项目程序集名称 ，如下图
 
     
 
-![](https://github.com/Ihone8/Notes/tree/master/ImagesQQ截图20181206183929.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183929.png)
 
 
 
  按回车之后，我们发布的dotnetcore 网站就已经部署在我们本地 localhost:5000 端口，可直接复制到浏览器查看，为了防止 VS冲突，我们先关闭我们  VS 环境，dotnetcore 默认发布地址是本地 5000 端口
 
-![](https://github.com/Ihone8/Notes/tree/master/ImagesQQ截图20181206184006.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206184006.png)
 
-![](https://github.com/Ihone8/Notes/tree/master/Imagesdotnetcoreweb.png)
+![](https://github.com/Ihone8/Notes/tree/master/Images/dotnetcoreweb.png)
 
  复制 https://localhost:5000 到浏览查看，看到以上页面，说明我们的 网站已经成功发布在我们 本地了
 
