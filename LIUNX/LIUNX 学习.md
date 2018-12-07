@@ -278,33 +278,34 @@
   > * -m ：以 MBytes 列出容量显示；
 
   > ```
-  > > > > > > 示例： 
-  > > > > > > 	1. du   列出目前目录下的所有文件容量  直接输入 du 没加任何选项时，则 du 会分析当前目录			文件与目录所占的容量
-  > > > > > > 		8	./.oracle_jre_usage
-  > > > > > >         8	./.pip
-  > > > > > >         4	./.ssh
-  > > > > > >         4	./runoob
-  > > > > > >         4	./tem/test1/test2/test3
-  > > > > > >         8	./tem/test1/test2
-  > > > > > >         12	./tem/test1
-  > > > > > >         。。。。。
-  > > > > > >     2. du -a 将文件容量也列出来
-  > > > > > >     	4	./.bashrc
-  > > > > > >         4	./.bash_profile
-  > > > > > >         4	./mydemo/1.txt
-  > > > > > >         8	./mydemo
-  > > > > > >         4	./.pydistutils.cfg
-  > > > > > >         4	./.bash_history
-  > > > > > >         。。。。。。
-  > > > > > >     3.  du -sm /* 检查根目录底下每个目录所占用的容量 ，通配符 * 来代表每个目录。
-  > > > > > >     	0	/bin
-  > > > > > >         140	/boot
-  > > > > > >         0	/dev
-  > > > > > >         32	/etc
-  > > > > > >         1	/home
-  > > > > > >         0	/lib
-  > > > > > >         0	/lib64
-  > > > > > >         。。。。。。
+  > > > > > > > 示例： 
+  > > > > > > > 	1. du   列出目前目录下的所有文件容量  直接输入 du 没加任何选项时，则 du 会分析当前目录			文件与目录所占的容量
+  > > > > > > > 		8	./.oracle_jre_usage
+  > > > > > > >         8	./.pip
+  > > > > > > >         4	./.ssh
+  > > > > > > >         4	./runoob
+  > > > > > > >         4	./tem/test1/test2/test3
+  > > > > > > >         8	./tem/test1/test2
+  > > > > > > >         12	./tem/test1
+  > > > > > > >         。。。。。
+  > > > > > > >     2. du -a 将文件容量也列出来
+  > > > > > > >     	4	./.bashrc
+  > > > > > > >         4	./.bash_profile
+  > > > > > > >         4	./mydemo/1.txt
+  > > > > > > >         8	./mydemo
+  > > > > > > >         4	./.pydistutils.cfg
+  > > > > > > >         4	./.bash_history
+  > > > > > > >         。。。。。。
+  > > > > > > >     3.  du -sm /* 检查根目录底下每个目录所占用的容量 ，通配符 * 来代表每个目录。
+  > > > > > > >     	0	/bin
+  > > > > > > >         140	/boot
+  > > > > > > >         0	/dev
+  > > > > > > >         32	/etc
+  > > > > > > >         1	/home
+  > > > > > > >         0	/lib
+  > > > > > > >         0	/lib64
+  > > > > > > >         。。。。。。
+  > > > > > > > ```
   > > > > > > ```
   > > > > > ```
   > > > > ```
@@ -321,72 +322,73 @@
   > * -l ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
 
   > ```
-  > > > > > > 示例：
-  > > > > > > 	1. fdisk -l  列出所有分区信息
-  > > > > > > 		Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
-  > > > > > >         Units = sectors of 1 * 512 = 512 bytes
-  > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes
-  > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
-  > > > > > >         Disk label type: dos
-  > > > > > >         Disk identifier: 0x0008de3e
-  > > > > > > 
-  > > > > > >            Device Boot      Start         End      Blocks   Id  System
-  > > > > > >         /dev/vda1   *        2048    83884031    41940992   83  Linux
-  > > > > > > 	2. df /            <==注意：重点在找出磁盘文件名而已
-  > > > > > > 		Filesystem     1K-blocks    Used Available Use% Mounted on
-  > > > > > > 		/dev/vda1       41151808 1808820  37229556   5% /
-  > > > > > > 		
-  > > > > > > 	输入fdisk /dev/vda1
-  > > > > > >         Welcome to fdisk (util-linux 2.23.2).
-  > > > > > > 
-  > > > > > >         Changes will remain in memory only, until you decide to write them.
-  > > > > > >         Be careful before using the write command.
-  > > > > > > 
-  > > > > > >         Device does not contain a recognized partition table
-  > > > > > >         Building a new DOS disklabel with disk identifier 0x4c214682.
-  > > > > > > 
-  > > > > > >         Command (m for help):   =>> 等待你的输入
-  > > > > > >         
-  > > > > > >         输入 m 后，就会看到底下这些命令介绍
-  > > > > > >         
-  > > > > > >         	Command action
-  > > > > > >                a   toggle a bootable flag
-  > > > > > >                b   edit bsd disklabel
-  > > > > > >                c   toggle the dos compatibility flag
-  > > > > > >                d   delete a partition		 <==删除一个partition
-  > > > > > >                g   create a new empty GPT partition table
-  > > > > > >                G   create an IRIX (SGI) partition table
-  > > > > > >                l   list known partition types
-  > > > > > >                m   print this menu
-  > > > > > >                n   add a new partition		<==新增一个partition
-  > > > > > >                o   create a new empty DOS partition table
-  > > > > > >                p   print the partition table	 <==在屏幕上显示分割表
-  > > > > > >                q   quit without saving changes		<==不储存离开fdisk程序
-  > > > > > >                s   create a new empty Sun disklabel
-  > > > > > >                t   change a partition's system id
-  > > > > > >                u   change display/entry units
-  > > > > > >                v   verify the partition table
-  > > > > > >                w   write table to disk and exit		 <==将刚刚的动作写入分割表
-  > > > > > >                x   extra functionality (experts only)
-  > > > > > > 		输入 p 	<== 这里可以输出目前磁盘的状态
-  > > > > > > 		 这个磁盘的文件名与容量
-  > > > > > > 		Disk /dev/vda1: 42.9 GB, 42947575808 bytes, 83881984 sectors 
-  > > > > > >         Units = sectors of 1 * 512 = 512 bytes	
-  > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes 
-  > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
-  > > > > > >         Disk label type: dos
-  > > > > > >         Disk identifier: 0x4c214682
-  > > > > > > 
-  > > > > > >      	Device Boot      Start         End      Blocks   Id  System
-  > > > > > >      	
-  > > > > > >      	
-  > > > > > >      	想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
-  > > > > > > 
-  > > > > > > 		使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
-  > > > > > > 	
+  > > > > > > > 示例：
+  > > > > > > > 	1. fdisk -l  列出所有分区信息
+  > > > > > > > 		Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+  > > > > > > >         Units = sectors of 1 * 512 = 512 bytes
+  > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes
+  > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  > > > > > > >         Disk label type: dos
+  > > > > > > >         Disk identifier: 0x0008de3e
+  > > > > > > > 
+  > > > > > > >            Device Boot      Start         End      Blocks   Id  System
+  > > > > > > >         /dev/vda1   *        2048    83884031    41940992   83  Linux
+  > > > > > > > 	2. df /            <==注意：重点在找出磁盘文件名而已
+  > > > > > > > 		Filesystem     1K-blocks    Used Available Use% Mounted on
+  > > > > > > > 		/dev/vda1       41151808 1808820  37229556   5% /
+  > > > > > > > 		
+  > > > > > > > 	输入fdisk /dev/vda1
+  > > > > > > >         Welcome to fdisk (util-linux 2.23.2).
+  > > > > > > > 
+  > > > > > > >         Changes will remain in memory only, until you decide to write them.
+  > > > > > > >         Be careful before using the write command.
+  > > > > > > > 
+  > > > > > > >         Device does not contain a recognized partition table
+  > > > > > > >         Building a new DOS disklabel with disk identifier 0x4c214682.
+  > > > > > > > 
+  > > > > > > >         Command (m for help):   =>> 等待你的输入
+  > > > > > > >         
+  > > > > > > >         输入 m 后，就会看到底下这些命令介绍
+  > > > > > > >         
+  > > > > > > >         	Command action
+  > > > > > > >                a   toggle a bootable flag
+  > > > > > > >                b   edit bsd disklabel
+  > > > > > > >                c   toggle the dos compatibility flag
+  > > > > > > >                d   delete a partition		 <==删除一个partition
+  > > > > > > >                g   create a new empty GPT partition table
+  > > > > > > >                G   create an IRIX (SGI) partition table
+  > > > > > > >                l   list known partition types
+  > > > > > > >                m   print this menu
+  > > > > > > >                n   add a new partition		<==新增一个partition
+  > > > > > > >                o   create a new empty DOS partition table
+  > > > > > > >                p   print the partition table	 <==在屏幕上显示分割表
+  > > > > > > >                q   quit without saving changes		<==不储存离开fdisk程序
+  > > > > > > >                s   create a new empty Sun disklabel
+  > > > > > > >                t   change a partition's system id
+  > > > > > > >                u   change display/entry units
+  > > > > > > >                v   verify the partition table
+  > > > > > > >                w   write table to disk and exit		 <==将刚刚的动作写入分割表
+  > > > > > > >                x   extra functionality (experts only)
+  > > > > > > > 		输入 p 	<== 这里可以输出目前磁盘的状态
+  > > > > > > > 		 这个磁盘的文件名与容量
+  > > > > > > > 		Disk /dev/vda1: 42.9 GB, 42947575808 bytes, 83881984 sectors 
+  > > > > > > >         Units = sectors of 1 * 512 = 512 bytes	
+  > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes 
+  > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  > > > > > > >         Disk label type: dos
+  > > > > > > >         Disk identifier: 0x4c214682
+  > > > > > > > 
+  > > > > > > >      	Device Boot      Start         End      Blocks   Id  System
+  > > > > > > >      	
+  > > > > > > >      	
+  > > > > > > >      	想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
+  > > > > > > > 
+  > > > > > > > 		使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
+  > > > > > > > 	
+  > > > > > > > ```
+  > > > > > > >
+  > > > > > > >
   > > > > > > ```
-  > > > > > >
-  > > > > > >
   > > > > > ```
   > > > > ```
   > > > ```
@@ -461,51 +463,51 @@
 
      ![](https://github.com/Ihone8/Notes/blob/master/Images/dotnetcoreversion.png)
 
-   ![](https://github.com/Ihone8/Notes/tree/master/Images/Home.png)
+   ![](https://github.com/Ihone8/Notes/blob/master/Images/Home.png)
 
 好啦， 我们的 dotnetcore 网站应用就创建完成，是不是感觉和 ASP.NET MVC 一样的目录结构
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/run.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/run.png)
 
 我们把 Home 文件夹下面  index 页面 ，稍微 更改下，然后运行下看下效果
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/webrun.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/webrun.png)
 
 好啦， 我们的 dotnetcore 网站已经成功创建， 并且运行起来了， 
 
 2. 开始发布我们的 dotnetcore 网站 ， 和平时 .net 网站发布一样，没什么区别，右键项目 ，点击发布
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/fb.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/fb.png)
 
 点击发布按钮之后，可以看到下面的页面 ，我们选择文件夹发布，浏览选择我们要发布的文件的文件夹
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/fbfile.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/fbfile.png)
 
 选择完成之后，点击右下角的 发布按钮，静静的等待。发布完成之后，打开我们刚刚浏览选择的发布文件夹，你可以看到如下图，这些就是发布之后的文件
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/fbzhwjj.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/fbzhwjj.png)
 
 3. 好啦， 我们的 dotnetcore 网站已经成功发布好了在我们本地，我们该如何运行起来了，
 
     在我们发布的文件夹中 打开 cmd 窗口，在下图红框中输入 cmd 命令，会出现下图
 
-   ![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183527.png)
+   ![](https://github.com/Ihone8/Notes/blob/master/Images/QQ截图20181206183527.png)
 
-   ![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183603.png)
+   ![](https://github.com/Ihone8/Notes/blob/master/Images/QQ截图20181206183603.png)
 
 4. 在  cmd  窗口 输入   dotnet  加上  你的项目程序集名称 ，如下图
 
     
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206183929.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/QQ截图20181206183929.png)
 
 
 
  按回车之后，我们发布的dotnetcore 网站就已经部署在我们本地 localhost:5000 端口，可直接复制到浏览器查看，为了防止 VS冲突，我们先关闭我们  VS 环境，dotnetcore 默认发布地址是本地 5000 端口
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/QQ截图20181206184006.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/QQ截图20181206184006.png)
 
-![](https://github.com/Ihone8/Notes/tree/master/Images/dotnetcoreweb.png)
+![](https://github.com/Ihone8/Notes/blob/master/Images/dotnetcoreweb.png)
 
  复制 https://localhost:5000 到浏览查看，看到以上页面，说明我们的 网站已经成功发布在我们 本地了
 
