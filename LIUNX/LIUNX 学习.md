@@ -278,33 +278,36 @@
   > * -m ：以 MBytes 列出容量显示；
 
   > ```
-  > > > > > > > 示例： 
-  > > > > > > > 	1. du   列出目前目录下的所有文件容量  直接输入 du 没加任何选项时，则 du 会分析当前目录			文件与目录所占的容量
-  > > > > > > > 		8	./.oracle_jre_usage
-  > > > > > > >         8	./.pip
-  > > > > > > >         4	./.ssh
-  > > > > > > >         4	./runoob
-  > > > > > > >         4	./tem/test1/test2/test3
-  > > > > > > >         8	./tem/test1/test2
-  > > > > > > >         12	./tem/test1
-  > > > > > > >         。。。。。
-  > > > > > > >     2. du -a 将文件容量也列出来
-  > > > > > > >     	4	./.bashrc
-  > > > > > > >         4	./.bash_profile
-  > > > > > > >         4	./mydemo/1.txt
-  > > > > > > >         8	./mydemo
-  > > > > > > >         4	./.pydistutils.cfg
-  > > > > > > >         4	./.bash_history
-  > > > > > > >         。。。。。。
-  > > > > > > >     3.  du -sm /* 检查根目录底下每个目录所占用的容量 ，通配符 * 来代表每个目录。
-  > > > > > > >     	0	/bin
-  > > > > > > >         140	/boot
-  > > > > > > >         0	/dev
-  > > > > > > >         32	/etc
-  > > > > > > >         1	/home
-  > > > > > > >         0	/lib
-  > > > > > > >         0	/lib64
-  > > > > > > >         。。。。。。
+  > > > > > > > > > > 示例： 
+  > > > > > > > > > > 	1. du   列出目前目录下的所有文件容量  直接输入 du 没加任何选项时，则 du 会分析当前目录			文件与目录所占的容量
+  > > > > > > > > > > 		8	./.oracle_jre_usage
+  > > > > > > > > > >         8	./.pip
+  > > > > > > > > > >         4	./.ssh
+  > > > > > > > > > >         4	./runoob
+  > > > > > > > > > >         4	./tem/test1/test2/test3
+  > > > > > > > > > >         8	./tem/test1/test2
+  > > > > > > > > > >         12	./tem/test1
+  > > > > > > > > > >         。。。。。
+  > > > > > > > > > >     2. du -a 将文件容量也列出来
+  > > > > > > > > > >     	4	./.bashrc
+  > > > > > > > > > >         4	./.bash_profile
+  > > > > > > > > > >         4	./mydemo/1.txt
+  > > > > > > > > > >         8	./mydemo
+  > > > > > > > > > >         4	./.pydistutils.cfg
+  > > > > > > > > > >         4	./.bash_history
+  > > > > > > > > > >         。。。。。。
+  > > > > > > > > > >     3.  du -sm /* 检查根目录底下每个目录所占用的容量 ，通配符 * 来代表每个目录。
+  > > > > > > > > > >     	0	/bin
+  > > > > > > > > > >         140	/boot
+  > > > > > > > > > >         0	/dev
+  > > > > > > > > > >         32	/etc
+  > > > > > > > > > >         1	/home
+  > > > > > > > > > >         0	/lib
+  > > > > > > > > > >         0	/lib64
+  > > > > > > > > > >         。。。。。。
+  > > > > > > > > > > ```
+  > > > > > > > > > ```
+  > > > > > > > > ```
   > > > > > > > ```
   > > > > > > ```
   > > > > > ```
@@ -322,72 +325,75 @@
   > * -l ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
 
   > ```
-  > > > > > > > 示例：
-  > > > > > > > 	1. fdisk -l  列出所有分区信息
-  > > > > > > > 		Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
-  > > > > > > >         Units = sectors of 1 * 512 = 512 bytes
-  > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes
-  > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
-  > > > > > > >         Disk label type: dos
-  > > > > > > >         Disk identifier: 0x0008de3e
-  > > > > > > > 
-  > > > > > > >            Device Boot      Start         End      Blocks   Id  System
-  > > > > > > >         /dev/vda1   *        2048    83884031    41940992   83  Linux
-  > > > > > > > 	2. df /            <==注意：重点在找出磁盘文件名而已
-  > > > > > > > 		Filesystem     1K-blocks    Used Available Use% Mounted on
-  > > > > > > > 		/dev/vda1       41151808 1808820  37229556   5% /
-  > > > > > > > 		
-  > > > > > > > 	输入fdisk /dev/vda1
-  > > > > > > >         Welcome to fdisk (util-linux 2.23.2).
-  > > > > > > > 
-  > > > > > > >         Changes will remain in memory only, until you decide to write them.
-  > > > > > > >         Be careful before using the write command.
-  > > > > > > > 
-  > > > > > > >         Device does not contain a recognized partition table
-  > > > > > > >         Building a new DOS disklabel with disk identifier 0x4c214682.
-  > > > > > > > 
-  > > > > > > >         Command (m for help):   =>> 等待你的输入
-  > > > > > > >         
-  > > > > > > >         输入 m 后，就会看到底下这些命令介绍
-  > > > > > > >         
-  > > > > > > >         	Command action
-  > > > > > > >                a   toggle a bootable flag
-  > > > > > > >                b   edit bsd disklabel
-  > > > > > > >                c   toggle the dos compatibility flag
-  > > > > > > >                d   delete a partition		 <==删除一个partition
-  > > > > > > >                g   create a new empty GPT partition table
-  > > > > > > >                G   create an IRIX (SGI) partition table
-  > > > > > > >                l   list known partition types
-  > > > > > > >                m   print this menu
-  > > > > > > >                n   add a new partition		<==新增一个partition
-  > > > > > > >                o   create a new empty DOS partition table
-  > > > > > > >                p   print the partition table	 <==在屏幕上显示分割表
-  > > > > > > >                q   quit without saving changes		<==不储存离开fdisk程序
-  > > > > > > >                s   create a new empty Sun disklabel
-  > > > > > > >                t   change a partition's system id
-  > > > > > > >                u   change display/entry units
-  > > > > > > >                v   verify the partition table
-  > > > > > > >                w   write table to disk and exit		 <==将刚刚的动作写入分割表
-  > > > > > > >                x   extra functionality (experts only)
-  > > > > > > > 		输入 p 	<== 这里可以输出目前磁盘的状态
-  > > > > > > > 		 这个磁盘的文件名与容量
-  > > > > > > > 		Disk /dev/vda1: 42.9 GB, 42947575808 bytes, 83881984 sectors 
-  > > > > > > >         Units = sectors of 1 * 512 = 512 bytes	
-  > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes 
-  > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
-  > > > > > > >         Disk label type: dos
-  > > > > > > >         Disk identifier: 0x4c214682
-  > > > > > > > 
-  > > > > > > >      	Device Boot      Start         End      Blocks   Id  System
-  > > > > > > >      	
-  > > > > > > >      	
-  > > > > > > >      	想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
-  > > > > > > > 
-  > > > > > > > 		使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
-  > > > > > > > 	
+  > > > > > > > > > > 示例：
+  > > > > > > > > > > 	1. fdisk -l  列出所有分区信息
+  > > > > > > > > > > 		Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+  > > > > > > > > > >         Units = sectors of 1 * 512 = 512 bytes
+  > > > > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes
+  > > > > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  > > > > > > > > > >         Disk label type: dos
+  > > > > > > > > > >         Disk identifier: 0x0008de3e
+  > > > > > > > > > > 
+  > > > > > > > > > >            Device Boot      Start         End      Blocks   Id  System
+  > > > > > > > > > >         /dev/vda1   *        2048    83884031    41940992   83  Linux
+  > > > > > > > > > > 	2. df /            <==注意：重点在找出磁盘文件名而已
+  > > > > > > > > > > 		Filesystem     1K-blocks    Used Available Use% Mounted on
+  > > > > > > > > > > 		/dev/vda1       41151808 1808820  37229556   5% /
+  > > > > > > > > > > 		
+  > > > > > > > > > > 	输入fdisk /dev/vda1
+  > > > > > > > > > >         Welcome to fdisk (util-linux 2.23.2).
+  > > > > > > > > > > 
+  > > > > > > > > > >         Changes will remain in memory only, until you decide to write them.
+  > > > > > > > > > >         Be careful before using the write command.
+  > > > > > > > > > > 
+  > > > > > > > > > >         Device does not contain a recognized partition table
+  > > > > > > > > > >         Building a new DOS disklabel with disk identifier 0x4c214682.
+  > > > > > > > > > > 
+  > > > > > > > > > >         Command (m for help):   =>> 等待你的输入
+  > > > > > > > > > >         
+  > > > > > > > > > >         输入 m 后，就会看到底下这些命令介绍
+  > > > > > > > > > >         
+  > > > > > > > > > >         	Command action
+  > > > > > > > > > >                a   toggle a bootable flag
+  > > > > > > > > > >                b   edit bsd disklabel
+  > > > > > > > > > >                c   toggle the dos compatibility flag
+  > > > > > > > > > >                d   delete a partition		 <==删除一个partition
+  > > > > > > > > > >                g   create a new empty GPT partition table
+  > > > > > > > > > >                G   create an IRIX (SGI) partition table
+  > > > > > > > > > >                l   list known partition types
+  > > > > > > > > > >                m   print this menu
+  > > > > > > > > > >                n   add a new partition		<==新增一个partition
+  > > > > > > > > > >                o   create a new empty DOS partition table
+  > > > > > > > > > >                p   print the partition table	 <==在屏幕上显示分割表
+  > > > > > > > > > >                q   quit without saving changes		<==不储存离开fdisk程序
+  > > > > > > > > > >                s   create a new empty Sun disklabel
+  > > > > > > > > > >                t   change a partition's system id
+  > > > > > > > > > >                u   change display/entry units
+  > > > > > > > > > >                v   verify the partition table
+  > > > > > > > > > >                w   write table to disk and exit		 <==将刚刚的动作写入分割表
+  > > > > > > > > > >                x   extra functionality (experts only)
+  > > > > > > > > > > 		输入 p 	<== 这里可以输出目前磁盘的状态
+  > > > > > > > > > > 		 这个磁盘的文件名与容量
+  > > > > > > > > > > 		Disk /dev/vda1: 42.9 GB, 42947575808 bytes, 83881984 sectors 
+  > > > > > > > > > >         Units = sectors of 1 * 512 = 512 bytes	
+  > > > > > > > > > >         Sector size (logical/physical): 512 bytes / 512 bytes 
+  > > > > > > > > > >         I/O size (minimum/optimal): 512 bytes / 512 bytes
+  > > > > > > > > > >         Disk label type: dos
+  > > > > > > > > > >         Disk identifier: 0x4c214682
+  > > > > > > > > > > 
+  > > > > > > > > > >      	Device Boot      Start         End      Blocks   Id  System
+  > > > > > > > > > >      	
+  > > > > > > > > > >      	
+  > > > > > > > > > >      	想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
+  > > > > > > > > > > 
+  > > > > > > > > > > 		使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
+  > > > > > > > > > > 	
+  > > > > > > > > > > ```
+  > > > > > > > > > >
+  > > > > > > > > > >
+  > > > > > > > > > ```
+  > > > > > > > > ```
   > > > > > > > ```
-  > > > > > > >
-  > > > > > > >
   > > > > > > ```
   > > > > > ```
   > > > > ```
@@ -447,7 +453,22 @@
   >     yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除	 缓存目录下的软件包及旧的headers
   > ```
   >
-  >
+#### LIUNX 开放指定端口
+
+> * firewall-cmd --state 查看当前防火墙的状态 执行结果为Not Runing，意思就是未运行
+>
+> * firewall-cmd --list-all 查看当前开放的端口，由于当前FirewallD is not Runing ,所以这些命令都是无法使用的，需要将防火墙开启，相关命令如下：
+>
+>   * systemctl start firewalld         # 启动,
+>   * systemctl enable firewalld         # 开机启动
+>   * systemctl stop firewalld           # 关闭
+>   * systemctl disable firewalld       # 取消开机启动
+>
+> * 使用命令行：firewall-cmd --zone=public --add-port=5000/tcp --permanent  , 开放 5000 端口
+>
+>    开发端口之后，在执行firewall-cmd --reload立刻生效，firewall-cmd --list-all 显示所有开放端口
+>
+
 
 ### dotNetCore 网站 部署到 LIUNX 
 
@@ -514,3 +535,4 @@
 4. 以上步骤都完成了之后，就开始我们上我们的 LIUNX 服务器瞎搞啦。
 
     
+
